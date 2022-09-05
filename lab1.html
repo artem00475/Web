@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        /*Селектор по классу*/
+        .mainTable {
+            width: 100%;
+            text-align: center;
+            border: solid;
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+        /*Селектор атрибутов*/
+        [colspan] {
+            border-bottom: 1px solid gray;
+            margin-bottom: 5%;
+            background-color: antiquewhite;
+            font-size: large;
+            color: brown;
+            font-family: monospace;
+        }
+        /*Наследование*/
+        body {
+            /* Каскадирование */
+            background-color: aquamarine;
+        }
+        form {
+            padding-bottom: 5%;
+            font-size: 16px;
+        }
+        .inputRow td {
+            /* каскадирование */
+            background-color: aliceblue;
+            padding-bottom: 15.9%;
+        }
+        /*Селектор типу элемента*/
+        th {
+            background-color: aliceblue;
+            padding-top: 10%;
+            padding-bottom: 2%;
+        }
+        /*Дочерний селектор*/
+        .bottom > td {
+            padding-top: 0.4%;
+            border-top: 1px solid gray;
+            padding-bottom: 0.4%;
+            background-color: antiquewhite;
+        }
+        /*Селектор псевдоэлемента*/
+        a::after {
+            content: "→";
+        }
+        /*Селектор псевдокласса*/
+        a:hover {
+            opacity: .5;
+        }
+
+        .input,select {
+            margin-bottom: 5%;
+        }
+
+    </style>
+</head>
+<body>
+    <table class="mainTable">
+        <!-- Шапка -->
+        <tr>
+            <td colspan="2">
+                <h3>Тучин Артём<br>Группа P32111 <br>Вариант 815</h3>
+            </td>
+            <td colspan="2"><a href="table.php">Таблица</a></td>
+        </tr>
+        <tr>
+            <!-- Заголовки -->
+            <th></th>
+            <th>График</th>
+            <th>Координаты</th>
+            <th></th>
+        </tr>
+        <tr class="inputRow">
+            <td></td>
+            <!-- График -->
+            <td>
+                <img src="Graph.png" alt="График">
+            </td>
+            <!-- Форма -->
+            <td><form action="script.php" method="post" onsubmit="return checkForm(this)">
+                <!-- Поле ввода координаты Х -->
+                <label for="selectX">X: </label>
+                <select name="x" id="selectX">
+                    <option value="-5">-5</option>
+                    <option value="-4">-4</option>
+                    <option value="-3">-3</option>
+                    <option value="-2">-2</option>
+                    <option value="-1">-1</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <br>
+                <!-- Поле ввода координаты Y -->
+                <div class="input">
+                    <label for="textY">Y: </label>
+                    <input type="text" name="y" placeholder="Введите число от -5 до 5" id="textY">
+                    <div id="yError"></div>
+                </div>
+                <!-- Поле ввода параметра R -->
+                <div class="input">
+                    <label>R: </label>
+                    <input type="radio" id="radio1" name="r" value="1">
+                    <label for="radio1">1</label>
+                    <input type="radio" id="radio2" name="r" value="2">
+                    <label for="radio2">2</label>
+                    <input type="radio" id="radio3" name="r" value="3">
+                    <label for="radio3">3</label>
+                    <input type="radio" id="radio4" name="r" value="4">
+                    <label for="radio4">4</label>
+                    <input type="radio" id="radio5" name="r" value="5">
+                    <label for="radio5">5</label>
+                    <div id="rError"></div>
+                </div>
+                <!-- Кнопка подтверждения -->
+                <input type="submit" value="Подтвердить">
+                </form>
+            </td>
+            <td></td>
+        </tr>
+        <!-- Футер -->
+        <tr class="bottom">
+            <td></td><td>Г. Санкт-Петербург</td><td>2022г.</td><td></td>
+        </tr>
+    </table>
+    <!-- Подключение скрипта проверки формы -->
+    <script src="checker.js"></script>
+</body>
+</html>

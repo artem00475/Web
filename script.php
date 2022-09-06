@@ -19,7 +19,7 @@
     }
     if (ifFirstQuerter($x,$y,$r) || ifSecondQuerter($x,$y,$r) || ifThirdQuerter($x,$y,$r)) $hit="Да";
     else $hit="Нет";
-    $date = Date('H:i:s');
+    $date = Date('H:i:s',strtotime('+3 hours'));
     $timeScript = number_format(microtime(true) - $timeScriptStart,6).'с';
     $tableArray = $x.' '.$y.' '.$r.' '.$hit.' '.$date.' '.$timeScript;
     if ($_COOKIE['count'] == '') $count = 0;

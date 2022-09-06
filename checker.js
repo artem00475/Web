@@ -15,10 +15,11 @@ function printErr(text,id) {
 }
 
 function checkY(y) {
+    y = y.replace(",",".");
     if (y == '') {
         printErr('Заполните поле','yError');
         return false;
-    }else if (new RegExp('^-?[0-4]\.?[0-9]*$').test(y) || new RegExp('^-?5\.?0*$').test(y)) {
+    }else if (new RegExp(/^-?[0-4](\.[0-9]*)?$/).test(y) || new RegExp(/^-?5(\.0*)?$/).test(y)) {
         document.getElementById('yError').innerHTML = '';
         return true;
     }else {

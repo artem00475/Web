@@ -15,7 +15,7 @@ function checkY(y) {
     if (y == '') {
         printErr('Заполните поле','yError');
         return false;
-    }else if (new RegExp('^[0-5]$').test(y) || new RegExp('^-[1-5]$').test(y)) {
+    }else if (new RegExp('^-?[0-4]\.?[0-9]*$').test(y) || new RegExp('^-?5\.?0*$').test(y)) {
         document.getElementById('yError').innerHTML = '';
         return true;
     }else {

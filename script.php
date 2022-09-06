@@ -3,6 +3,7 @@
     $x = $_POST['x'];
     $y = $_POST['y'];
     $r = $_POST['r'];
+    $timeOffset = $_POST['time']*(-1);
     $hit;
 
     function ifFirstQuerter($x,$y,$r) {
@@ -19,7 +20,7 @@
     }
     if (ifFirstQuerter($x,$y,$r) || ifSecondQuerter($x,$y,$r) || ifThirdQuerter($x,$y,$r)) $hit="Да";
     else $hit="Нет";
-    $date = Date('H:i:s',strtotime('+3 hours'));
+    $date = Date('H:i:s',strtotime($timeOffset.' minutes'));
     $timeScript = number_format(microtime(true) - $timeScriptStart,6).'с';
     $tableArray = $x.' '.$y.' '.$r.' '.$hit.' '.$date.' '.$timeScript;
     if ($_COOKIE['count'] == '') $count = 0;

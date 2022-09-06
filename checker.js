@@ -3,6 +3,7 @@ function checkForm(el) {
     let r = el.r.value;
     if (checkR(r) & checkY(y)) {
         el.y.value = y.replace(",",".");
+        el.time.value = new Date().getTimezoneOffset();
         return true;
     }
     return false;
@@ -19,7 +20,7 @@ function checkY(y) {
     if (y == '') {
         printErr('Заполните поле','yError');
         return false;
-    }else if (new RegExp(/^-?[0-4](\.[0-9]*)?$/).test(y) || new RegExp(/^-?5(\.0*)?$/).test(y)) {
+    }else if (new RegExp(/^-?[0-4](\.[0-9]*)?$/).test(y)) {
         document.getElementById('yError').innerHTML = '';
         return true;
     }else {

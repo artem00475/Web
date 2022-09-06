@@ -1,7 +1,10 @@
 function checkForm(el) {
     let y = el.y.value;
     let r = el.r.value;
-    if (checkR(r) & checkY(y)) return true;
+    if (checkR(r) & checkY(y)) {
+        el.y.value = y.replace(",",".");
+        return true;
+    }
     return false;
 
 }
